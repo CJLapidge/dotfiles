@@ -1,0 +1,46 @@
+set visualbell
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+set surround   "use vim-surround
+
+" enter adds a new line without going into insert mode
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
+
+"use the windows system register for copy/paste
+set clipboard=unnamedplus
+
+"make splits more natural
+set splitbelow
+set splitright
+
+"navigate splits without ctrl-w
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+let mapleader = " "
+
+" clear search term
+nnoremap <leader><esc> :noh<return><esc>
+
+"some idea-specific things
+"list of actions at https://gist.github.com/zchee/9c78f91cc5ad771c1f5d
+map <Leader>p :action TogglePresentationMode<CR>
+map <Leader>r :action RenameElement<CR>
+map <Leader>f :action FindUsages<CR>
+map <Leader>e :action RecentFiles<CR>
+map <Leader>c :action GotoClass<CR>
+map <Leader>l :action ReformatCode<CR>
+map <Leader>s :action GotoSymbol<CR>
+map <Leader>n :action NewElementSamePlace<CR>       "create a file here
+map <Leader>y :action QuickImplementations<CR>      "view def in popup
+map <Leader><F12> :action FileStructurePopup<CR>
+
+" Can also use Ctrl-Shift-[
+map <Leader>[ :action EditorCodeBlockStart<CR>
+" Can also use Ctrl-Shift-]
+map <Leader>] :action EditorCodeBlockEnd<CR>
