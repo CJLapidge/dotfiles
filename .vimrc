@@ -54,11 +54,14 @@ set colorcolumn=88
 hi CursorLine cterm=NONE ctermbg=black
 autocmd InsertEnter,InsertLeave * set cul!  
 
+"use the system clipboard
+set clipboard=unnamedplus
+
 "make splits more natural
 set splitbelow
 set splitright
 
-""navigate splits without ctrl-w
+"navigate splits without ctrl-w
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
