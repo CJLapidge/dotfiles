@@ -6,16 +6,31 @@ set tabstop=4 softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-set nu
 set nowrap
 set smartcase
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
 set undofile
+
+"LINE NUMBERING
+set number
+set relativenumber
+"Relative numbering, apart from the active line
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+"highlight current line in insert mode
+hi CursorLine cterm=NONE ctermbg=black
+autocmd InsertEnter,InsertLeave * set cul!  
+
+"SEARCH
 set incsearch                               " incremental search
 set hlsearch                                " highlight seatch results
 
+"PLUGINS
 "requires https://github.com/junegunn/vim-plug:
 "   put https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 "   in your ~/vimfiles/autoload
@@ -44,15 +59,12 @@ Plug 'tpope/vim-fugitive'                  " git wrapper
 "Plug 'vim-syntastic/syntastic'
 call plug#end()
 
-"Theming
+"THEMING
 colorscheme gruvbox
 set background=dark
 let g:airline_theme='gruvbox'
 set colorcolumn=88
 
-"highlight current line in insert mode
-hi CursorLine cterm=NONE ctermbg=black
-autocmd InsertEnter,InsertLeave * set cul!  
 
 "use the system clipboard
 set clipboard=unnamedplus
