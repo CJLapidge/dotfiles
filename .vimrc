@@ -65,7 +65,6 @@ set background=dark
 let g:airline_theme='gruvbox'
 set colorcolumn=88
 
-
 "use the system clipboard
 set clipboard=unnamedplus
 
@@ -78,6 +77,14 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+"alt j+k to move lines up and down
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 let mapleader = " "
 nnoremap <leader><esc> :noh<return><esc>    " clear search term with leader esc
