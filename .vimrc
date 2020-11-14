@@ -45,11 +45,21 @@ Plug 'tpope/vim-surround'                   " allows replace-around with 'ca'
 Plug 'preservim/nerdtree'                   " file explorer
 Plug 'tpope/vim-fugitive'                  " git wrapper
 
+"plugins for js/react dev
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Intellisense engine
+let g:coc_global_extensions = [
+  \ 'coc-tsserver'
+  \ ]
+
 "plugins that might be helpful for unity/c# dev, which I'm trying out over time
 "Plug 'ycm-core/YouCompleteMe'
-"Plug 'neoclide/coc.nvim',{'branch':'release'}" Intellisense engine
 "Plug 'lyuts/vim-rtags'                     " C++ code navigation
-"Plug 'leafgarland/typescript-vim'
 "Plug 'jremmen/vim-ripgrep'
 "Plug 'mbbill/undotree'
 "Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
@@ -65,8 +75,20 @@ set background=dark
 let g:airline_theme='gruvbox'
 set colorcolumn=88
 
+let mapleader = " "
 "use the system clipboard
 set clipboard=unnamedplus
+
+"don't copy deleted chars to the clipboard
+nnoremap x "_x
+
+"options to not copy deleted lines to the clipboard
+nnoremap <leader>d "_d
+xnoremap <leader>d "_d
+xnoremap <leader>p "_dP
+
+"clear search term with leader esc
+nnoremap <leader><esc> :noh<return><esc> 
 
 "make splits more natural
 set splitbelow
@@ -85,8 +107,5 @@ inoremap <A-j> <Esc>:m .+1<CR>==gi
 inoremap <A-k> <Esc>:m .-2<CR>==gi
 vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
-
-let mapleader = " "
-nnoremap <leader><esc> :noh<return><esc>    " clear search term with leader esc
 
 nnoremap <leader>n :NERDTree<return> 
